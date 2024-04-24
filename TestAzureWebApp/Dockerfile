@@ -9,8 +9,8 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["TestAzureWebApp/TestAzureWebApp.csproj", "TestAzureWebApp/"]
-RUN dotnet restore "./TestAzureWebApp/TestAzureWebApp.csproj"
+COPY ["TestAzureWebApp.csproj", "TestAzureWebApp/"]
+RUN dotnet restore "./TestAzureWebApp.csproj"
 COPY . .
 WORKDIR "/src/TestAzureWebApp"
 RUN dotnet build "./TestAzureWebApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
