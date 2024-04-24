@@ -24,11 +24,7 @@ jobs:
             username: ${{ secrets.SERVICE_PRINCIPAL_ID }}
             password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
 
-        - name: PWD
-          run: pwd
-
-        - name: ls
-          run: cd TestAzureWebApp
+      
 # teset
-        - run: docker build . -t ${{ env.IMAGE_NAME }}
+        - run: docker build ../../TestAzureWebApp/Dockerfile -t ${{ env.IMAGE_NAME }}
         - run: docker push ${{ env.IMAGE_NAME }}
