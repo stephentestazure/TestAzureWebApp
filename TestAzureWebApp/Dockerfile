@@ -13,7 +13,7 @@ COPY ["TestAzureWebApp.csproj", "TestAzureWebApp/"]
 RUN dotnet restore "./TestAzureWebApp/TestAzureWebApp.csproj"
 COPY . .
 WORKDIR "/src/TestAzureWebApp"
-RUN dotnet build "./TestAzureWebApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "/src/TestAzureWebApp/TestAzureWebApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
