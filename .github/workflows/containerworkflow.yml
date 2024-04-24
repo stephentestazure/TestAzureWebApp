@@ -23,6 +23,11 @@ jobs:
             login-server: ${{ env.ACR_LOGON_SERVER }}
             username: ${{ secrets.SERVICE_PRINCIPAL_ID }}
             password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
-
-        - run: docker build ./TestAzureWebApp -t ${{ env.IMAGE_NAME }}
+        - name: run cd   
+          run: | 
+            cd TestAzureWebApp
+        - name: run cd   
+          run: | 
+            ls
+        - run: docker build . -t ${{ env.IMAGE_NAME }}
         - run: docker push ${{ env.IMAGE_NAME }}
