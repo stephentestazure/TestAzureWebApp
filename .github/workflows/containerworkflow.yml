@@ -11,11 +11,7 @@ jobs:
     build-deploy-image:
         
         runs-on: ubuntu-latest
-        defaults:
-          run: 
-            shell: bash
-            working-directory: TestAzureWebApp
-        
+      
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
